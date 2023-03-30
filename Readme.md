@@ -5,7 +5,7 @@
     wanghui-common 公用代码
 前端项目：
     sg-blog-vue 博客前台
-    sg-vue-admin 三更后台
+    sg-vue-admin 博客后台
 
 接口文档：
-    http://localhost:7777/swagger-ui.html#/
+    
