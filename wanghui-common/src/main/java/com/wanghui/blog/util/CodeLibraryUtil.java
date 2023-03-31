@@ -42,4 +42,28 @@ public class CodeLibraryUtil {
      * 评论类型（0代表文章评论，1代表友链评论）
      */
     public static final String LINK_COMMENT = "1";
+
+    /**
+     * redis缓存
+     *  article:viewCount(文章浏览量)
+     */
+    public static final String ARTICLE_VIEW_COUNT = "article:viewCount";
+
+    /**
+     * redis缓存
+     *  hotArticleList(热门文章文章)
+     */
+    public static final String HOT_ARTICLE_LIST = "hotArticleList";
+
+    /**
+     * redis缓存
+     *  categoryList(分类列表)
+     */
+    public static final String  CATEGORY_LIST = "categoryList";
+
+    /**
+     * redis缓存
+     *  articleList(文章列表)
+     */
+    public static final String  ARTICLE_LIST = "articleList";
 }

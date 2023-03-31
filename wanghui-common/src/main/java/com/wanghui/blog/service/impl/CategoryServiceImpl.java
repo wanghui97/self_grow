@@ -9,6 +9,7 @@ import com.wanghui.blog.mapper.CategoryMapper;
 import com.wanghui.blog.service.CategoryService;
 import com.wanghui.blog.util.BeanCopyUtils;
 import com.wanghui.blog.util.CodeLibraryUtil;
+import com.wanghui.blog.util.RedisCache;
 import com.wanghui.blog.util.ResponseResult;
 import com.wanghui.blog.vo.CategoryVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 
@@ -32,6 +34,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     private ArticleMapper articleMapper;
     @Autowired
     private CategoryMapper categoryMapper;
+    @Autowired
+    private RedisCache redisCache;
+
 
     @Override
     public ResponseResult getCategoryList() {
@@ -51,6 +56,10 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
                 .collect(Collectors.toList());
         //封装vo
         List<CategoryVo> categoryVos = BeanCopyUtils.copyBeanList(categoryList, CategoryVo.class);
+        //将分类列表保存到redis缓存中
+        redisCache.setCacheList(CodeLibraryUtil.CATEGORY_LIST,categoryVos);
+        //设置某个key值的缓存过期时间
+        redisCache.expire(CodeLibraryUtil.CATEGORY_LIST,5, TimeUnit.MINUTES);
         return ResponseResult.okResult(categoryVos);
     }
 }

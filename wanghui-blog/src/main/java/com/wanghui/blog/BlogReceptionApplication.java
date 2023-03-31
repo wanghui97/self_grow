@@ -3,6 +3,8 @@ package com.wanghui.blog;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -15,7 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Version 1.0
  */
 @SpringBootApplication
-@EnableSwagger2
+@EnableScheduling//开启定时任务
+@EnableSwagger2//开启swagger2文档
 public class BlogReceptionApplication {
     public static void main(String[] args) {
         SpringApplication.run(BlogReceptionApplication.class,args);

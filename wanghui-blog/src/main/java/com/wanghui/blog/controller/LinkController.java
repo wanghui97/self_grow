@@ -1,9 +1,13 @@
 package com.wanghui.blog.controller;
 
 
+import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.service.CommentService;
 import com.wanghui.blog.service.LinkService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,14 +25,16 @@ public class LinkController{
      */
     @Autowired
     private LinkService linkService;
-    @Autowired
-    private CommentService commentService;
 
     /**
-     * 友联查询
+     * 友链查询
      * @return 所有数据
      */
     @GetMapping("/getAllLink")
+    @SelfDefinedSystemLog(BusinessName="查询友链列表")
+    @ApiOperation(value = "友链信息",notes = "查询友链列表")
+    @ApiImplicitParams({
+    })
     public ResponseResult getAllLink(){
         return linkService.getAllLink();
     }
