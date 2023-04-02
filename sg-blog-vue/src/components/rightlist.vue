@@ -7,7 +7,7 @@
           :src="
             this.$store.state.themeObj.center_smailimg
               ? this.$store.state.themeObj.center_smailimg
-              : 'static/img/img01.jpg'
+              : 'static/img/aboutme.jpg'
           "
           alt=""
         />
@@ -16,7 +16,7 @@
         </h1>
       </div>
       <div class="r1-body">
-        <p>三更</p>
+        <p>个人</p>
         <div class="catch-me">
           <div class="">
             <el-tooltip class="item" content="Github" placement="top">
@@ -98,7 +98,7 @@
         :src="
           this.$store.state.themeObj.right_img
             ? this.$store.state.themeObj.right_img
-            : 'static/img/scroll.png'
+            : 'static/img/long.png'
         "
         alt=""
       />
@@ -124,7 +124,7 @@ export default {
         git: "https://gitee.com",
         qq: "/static/img/qq.png",
         sina: "https://weibo.com",
-        wechat: "/static/img/qq.jpg",
+        wechat: "/static/img/微信.png",
         csdn: "http://www.csdn.cn",
         job: "https://www.baidu.com",
       },

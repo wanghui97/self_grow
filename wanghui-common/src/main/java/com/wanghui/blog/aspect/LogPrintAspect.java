@@ -62,7 +62,9 @@ public class LogPrintAspect {
         // 打印请求的 IP
         log.info("IP             : {}",request.getRemoteHost());
         // 打印请求入参
-        log.info("Request Args   : {}", JSON.toJSONString(pjp.getArgs()));
+        if(!"uploadImg".equals(((MethodSignature)pjp.getSignature()).getName())){
+            log.info("Request Args   : {}", JSON.toJSONString(pjp.getArgs()));
+        }
     }
 
     private SelfDefinedSystemLog getSystemLog(ProceedingJoinPoint pjp) {

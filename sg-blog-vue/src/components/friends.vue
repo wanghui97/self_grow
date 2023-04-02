@@ -6,7 +6,8 @@
         <h3>网站地址: https://www.baidu.com </h3>
         <h3>网站描述: 百度你懂的</h3>
         <h3>网站logo: https://www.sg.com/1.png</h3>
-
+    <br/>
+    <br/>
     <el-row>
         <el-col :span="12" class="tf-item" v-for="(item,index) in friendslink" :key="'f'+index">
             <a :href="item.address" target="_blank">
