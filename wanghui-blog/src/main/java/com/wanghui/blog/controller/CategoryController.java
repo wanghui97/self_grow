@@ -2,9 +2,13 @@ package com.wanghui.blog.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.entity.Article;
 import com.wanghui.blog.service.CategoryService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +34,10 @@ public class CategoryController {
      * @return 所有数据
      */
     @GetMapping("/getCategoryList")
+    @SelfDefinedSystemLog(BusinessName="分页查询所有分类数据")
+    @ApiOperation(value = "文章分类",notes = "分页查询所有分类数据")
+    @ApiImplicitParams({
+    })
     public ResponseResult getCategoryList(){
         return categoryService.getCategoryList();
     }

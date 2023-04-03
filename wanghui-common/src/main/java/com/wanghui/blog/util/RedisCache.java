@@ -235,4 +235,15 @@ public class RedisCache
     {
         return redisTemplate.keys(pattern);
     }
+
+    /**
+     * 设置自增
+     * @param key 字符串前缀
+     * @param hKey 字符串主键
+     * @param v 自增值
+     * @return 对象列表
+     */
+    public void incrementCacheMapValue(String key,String hKey,int v){
+        redisTemplate.opsForHash().increment(key,hKey,v);
+    }
 }
