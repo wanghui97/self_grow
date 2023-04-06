@@ -3,6 +3,7 @@ package com.wanghui.blog.controller;
 import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.service.UploadService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @Version 1.0
  */
 @RestController
+@Api(tags = "文件上传",description = "博客前台系统头像上传功能相关接口")
 public class MultipartFileUploadController {
     @Autowired
     private UploadService uploadService;

@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("sys_comment")
+@ApiModel(description = "评论信息实体类")
 public class Comment  {
     @TableId
     private Long id;
@@ -38,12 +40,16 @@ public class Comment  {
     private Long toCommentUserId;
     //回复目标评论id
     private Long toCommentId;
+    //创建人
     @TableField(fill = FieldFill.INSERT)
     private Long createBy;
+    //创建时间
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
+    //更新人
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateBy;
+    //更新时间
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
     //删除标志（0代表未删除，1代表已删除）

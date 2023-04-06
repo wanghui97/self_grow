@@ -6,6 +6,7 @@ import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.entity.Article;
 import com.wanghui.blog.service.CategoryService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +24,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("category")
+@Api(tags = "分类信息",description = "博客前台系统分类信息相关接口")
 public class CategoryController {
     /**
      * 服务对象

@@ -1,8 +1,11 @@
 package com.wanghui.blog.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.wanghui.blog.dto.UserDto;
+import com.wanghui.blog.dto.UserUpdateDto;
 import com.wanghui.blog.entity.User;
 import com.wanghui.blog.util.ResponseResult;
+import com.wanghui.blog.vo.PageVo;
 
 
 /**
@@ -17,4 +20,12 @@ public interface UserService extends IService<User> {
     ResponseResult saveSelfInfo(User user);
 
     ResponseResult updateSelfInfo(User user);
+
+    ResponseResult<PageVo> selectUserListPage(Integer pageNum, Integer pageSize, String userName, String phoneNumber, String status);
+
+    ResponseResult saveUserInfo(UserDto userDto);
+
+    ResponseResult selectUserRoleList(Long userId);
+
+    ResponseResult updateUserAndRoleById(UserUpdateDto userUpdateDto);
 }

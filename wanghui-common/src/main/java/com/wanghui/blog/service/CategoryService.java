@@ -3,6 +3,7 @@ package com.wanghui.blog.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wanghui.blog.entity.Category;
 import com.wanghui.blog.util.ResponseResult;
+import com.wanghui.blog.vo.PageVo;
 
 
 /**
@@ -14,4 +15,10 @@ import com.wanghui.blog.util.ResponseResult;
 public interface CategoryService extends IService<Category> {
 
     ResponseResult getCategoryList();
+
+    ResponseResult listAllCategory();
+
+    ResponseResult<PageVo> pageCategoryList(Integer pageNum, Integer pageSize, String categoryName, String status);
+
+    ResponseResult selectCategoryById(Long categoryId);
 }

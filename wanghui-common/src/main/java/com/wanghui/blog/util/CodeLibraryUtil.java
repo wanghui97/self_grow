@@ -66,4 +66,32 @@ public class CodeLibraryUtil {
      *  articleList(文章列表)
      */
     public static final String  ARTICLE_LIST = "articleList";
+
+    /**
+     * redis缓存
+     *  BLOG_RECEPTION_CACHE(博客前台登录用户)
+     */
+    public static final String  BLOG_RECEPTION_CACHE = "BlogReceptionCache:";
+
+    /**
+     * redis缓存
+     *  BLOG_BACKGROUND_CACHE(博客后台登录用户)
+     */
+    public static final String  BLOG_BACKGROUND_CACHE = "BlogBackGroundCache:";
+
+    /**
+     * 表示数据库状态为正常
+     */
+    public static final String STATUS_NORMAL = "0";
+
+    /**
+     * 表示菜单类型为菜单
+     */
+    public static final String MENU_TYPE_C = "C";
+
+    /**
+     * 表示菜单类型为按钮
+     */
+    public static final String MENU_TYPE_F = "F";
+    public static final String ADMIN = "1";
 }

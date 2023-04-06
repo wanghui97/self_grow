@@ -5,10 +5,7 @@ import com.wanghui.blog.Exception.SystemException;
 import com.wanghui.blog.entity.LoginUser;
 import com.wanghui.blog.entity.User;
 import com.wanghui.blog.service.BlogReceptionLoginService;
-import com.wanghui.blog.util.BeanCopyUtils;
-import com.wanghui.blog.util.JwtUtil;
-import com.wanghui.blog.util.RedisCache;
-import com.wanghui.blog.util.ResponseResult;
+import com.wanghui.blog.util.*;
 import com.wanghui.blog.vo.BlogUserLoginVo;
 import com.wanghui.blog.vo.UserInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 
@@ -31,6 +29,7 @@ import java.util.Objects;
  * @Version 1.0
  */
 @Service
+@Transactional
 public class BlogReceptionLoginServiceImpl implements BlogReceptionLoginService {
 
     @Autowired
@@ -54,7 +53,7 @@ public class BlogReceptionLoginServiceImpl implements BlogReceptionLoginService 
         String userId = loginUser.getUser().getId().toString();
         String jwt = JwtUtil.createJWT(userId);
         //将用户信息存到Redis缓存中
-        redisCache.setCacheObject("BlogReceptionCache:"+userId,loginUser);
+        redisCache.setCacheObject(CodeLibraryUtil.BLOG_RECEPTION_CACHE +userId,loginUser);
         //封装响应报文：响应报文报文体中包含token信息和用户基本信息
         UserInfoVo userInfoVo = BeanCopyUtils.copyBean(loginUser.getUser(), UserInfoVo.class);
         BlogUserLoginVo blogUserLoginVo = new BlogUserLoginVo(jwt,userInfoVo);
@@ -69,7 +68,7 @@ public class BlogReceptionLoginServiceImpl implements BlogReceptionLoginService 
         //从用户认证信息中获取用户信息
         LoginUser loginUser = (LoginUser)authentication.getPrincipal();
         //删除redis缓存信息
-        redisCache.deleteObject("BlogReceptionCache:"+loginUser.getUser().getId());
+        redisCache.deleteObject(CodeLibraryUtil.BLOG_RECEPTION_CACHE+loginUser.getUser().getId());
         //返回响应信息
         return ResponseResult.okResult();
     }

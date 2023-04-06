@@ -4,7 +4,6 @@ import com.wanghui.blog.entity.User;
 import com.wanghui.blog.util.ResponseResult;
 
 /**
- * ClassName: BlogReceptionLoginService
  * Package: com.wanghui.blog.controller
  * Description:
  *

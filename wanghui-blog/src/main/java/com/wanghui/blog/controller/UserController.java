@@ -5,6 +5,7 @@ import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.entity.User;
 import com.wanghui.blog.service.UserService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("user")
+@Api(tags = "用户信息",description = "博客前台系统用户管理功能相关接口")
 public class UserController {
     /**
      * 服务对象

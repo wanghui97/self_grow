@@ -6,6 +6,7 @@ import com.wanghui.blog.entity.Comment;
 import com.wanghui.blog.service.CommentService;
 import com.wanghui.blog.util.CodeLibraryUtil;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("comment")
+@Api(tags = "评论信息",description = "博客前台系统评论信息相关接口")
 public class CommentController {
     /**
      * 服务对象

@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * ClassName: LoginUser
@@ -24,7 +25,8 @@ import java.util.Collection;
 public class LoginUser implements UserDetails {
     @Autowired
     private User user;
-
+    //权限信息列表
+    private List<String> permissions;
     //返回一个权限列表
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

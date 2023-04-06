@@ -16,6 +16,7 @@ import com.wanghui.blog.vo.CommentVo;
 import com.wanghui.blog.vo.PageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.xmlunit.util.Mapper;
 
 import java.util.List;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
  * @since 2023-03-24 10:12:31
  */
 @Service("commentService")
+@Transactional
 public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> implements CommentService {
     @Autowired
     private CommentMapper commentMapper;

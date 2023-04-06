@@ -2,6 +2,7 @@ package com.wanghui.blog.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.wanghui.blog.dto.ArticleDto;
 import com.wanghui.blog.entity.Article;
 import com.wanghui.blog.util.ResponseResult;
 
@@ -21,4 +22,12 @@ public interface ArticleService extends IService<Article> {
     ResponseResult selectById(String id);
 
     ResponseResult updateViewCount(String id);
+
+    ResponseResult addArticleInfo(ArticleDto articleVo);
+
+    ResponseResult selectAllArticlePage(Integer pageNum,Integer pageSize, String title,String summary);
+
+    ResponseResult selectArticleById(Long articleId);
+
+    ResponseResult updateByArticleId(ArticleDto articleDto);
 }

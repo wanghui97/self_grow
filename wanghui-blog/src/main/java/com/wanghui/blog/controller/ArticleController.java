@@ -9,6 +9,7 @@ import com.wanghui.blog.entity.Article;
 import com.wanghui.blog.service.ArticleService;
 import com.wanghui.blog.util.CodeLibraryUtil;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("article")
+@Api(tags = "文章",description = "文章相关接口")
 public class ArticleController{
     /**
      * 服务对象
@@ -59,7 +61,6 @@ public class ArticleController{
     @SelfDefinedSystemLog(BusinessName="查询热门文章列表")
     @ApiOperation(value = "热门文章",notes = "查询热门文章列表")
     @ApiImplicitParams({
-
     })
     public ResponseResult hotArticleList() {
         ResponseResult responseResult = articleService.hotArticleList();

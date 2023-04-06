@@ -3,6 +3,7 @@ package com.wanghui.blog.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wanghui.blog.entity.Link;
 import com.wanghui.blog.util.ResponseResult;
+import com.wanghui.blog.vo.PageVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,8 @@ import org.springframework.stereotype.Repository;
 public interface LinkService extends IService<Link> {
 
     ResponseResult getAllLink();
+
+    ResponseResult<PageVo> pageLinkList(Integer pageNum, Integer pageSize,String linkName,String status);
+
+    ResponseResult selectLinkById(Long linkId);
 }

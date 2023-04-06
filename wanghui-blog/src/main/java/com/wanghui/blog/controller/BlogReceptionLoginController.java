@@ -4,6 +4,7 @@ import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.entity.User;
 import com.wanghui.blog.service.BlogReceptionLoginService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version 1.0
  */
 @RestController
+@Api(tags = "登录信息",description = "博客前台系统登录相关接口")
 public class BlogReceptionLoginController {
     @Autowired
     private BlogReceptionLoginService blogReceptionLoginService;

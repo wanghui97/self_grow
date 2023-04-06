@@ -5,6 +5,7 @@ import com.wanghui.blog.annotation.SelfDefinedSystemLog;
 import com.wanghui.blog.service.CommentService;
 import com.wanghui.blog.service.LinkService;
 import com.wanghui.blog.util.ResponseResult;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("link")
+@Api(tags = "友链信息",description = "博客前台系统友链信息相关接口")
 public class LinkController{
     /**
      * 服务对象

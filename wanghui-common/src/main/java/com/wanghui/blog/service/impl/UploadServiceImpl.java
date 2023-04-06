@@ -6,6 +6,7 @@ import com.wanghui.blog.service.UploadService;
 import com.wanghui.blog.util.PathUtils;
 import com.wanghui.blog.util.ResponseResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @Version 1.0
  */
 @Service
+@Transactional
 public class UploadServiceImpl implements UploadService {
 
     @Override

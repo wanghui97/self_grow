@@ -57,8 +57,8 @@
       >Login</el-button>
 
       <div class="tips">
-        <span style="margin-right: 20px">userName: sg</span>
-        <span> password: any</span>
+        <span style="margin-right: 20px">userName: wanghui</span>
+        <span> password: 123456</span>
       </div>
     </el-form>
   </div>
@@ -86,8 +86,8 @@ export default {
     }
     return {
       loginForm: {
-        userName: 'sg',
-        password: '1234'
+        userName: 'wanghui',
+        password: '123456'
       },
       loginRules: {
         userName: [

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -32,7 +33,12 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.setFieldValByName("updateTime", new Date(), metaObject);
-        this.setFieldValByName(" ", SecurityUtils.getUserId(), metaObject);
+        if(Objects.isNull(SecurityUtils.getAuthentication())){
+            this.setFieldValByName("updateTime", new Date(), metaObject);
+        }else {
+            this.setFieldValByName("updateTime", new Date(), metaObject);
+            this.setFieldValByName(" ", SecurityUtils.getUserId(), metaObject);
+        }
+
     }
 }
