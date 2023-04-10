@@ -103,6 +103,7 @@ module.exports = {
                 }
               }
             })
+          // eslint-disable-next-line no-sequences
           config.optimization.runtimeChunk('single'),
           {
             from: path.resolve(__dirname, './public/robots.txt'), // 防爬虫文件

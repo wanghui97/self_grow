@@ -11,7 +11,6 @@ import com.wanghui.blog.util.BeanCopyUtils;
 import com.wanghui.blog.util.CodeLibraryUtil;
 import com.wanghui.blog.util.ResponseResult;
 import com.wanghui.blog.vo.MenuVo;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,7 +88,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     /**
     * 根据 menuVo 的parentId 获取他的子节点(menuList是该用户所有的菜单信息列表)
     * */
-    private List<MenuVo> getChildren(MenuVo menuVo, @NotNull List<MenuVo> menuVoList) {
+    private List<MenuVo> getChildren(MenuVo menuVo,List<MenuVo> menuVoList) {
         //获取menuvoList集合中parentId为menuVo的id的所有菜单就是menuVo的children
         return menuVoList.stream()
                 .filter(menuVoFilter -> menuVoFilter.getParentId().equals(menuVo.getId()))
