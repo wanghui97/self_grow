@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserMapper userMapper;
     @Autowired
-    private MenuService menuMapper;
+    private MenuService menuService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -47,7 +47,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         //TODO 根据用户查询权限信息 添加到LoginUser中
         if(user.getType().equals(CodeLibraryUtil.ADMIN)){
-            List<String> list = menuMapper.selectPermsByUserId(user.getId());
+            List<String> list = menuService.selectPermsByUserId(user.getId());
             return new LoginUser(user,list);
         }
         //返回用户信息

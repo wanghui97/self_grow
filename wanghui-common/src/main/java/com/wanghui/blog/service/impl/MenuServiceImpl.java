@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * @author wanghui
  * @since 2023-04-03 20:17:29
  */
-@Service("menuService")
+@Service
 @Transactional
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
 
